@@ -1,0 +1,82 @@
+.navbar{
+    height:57px !important;
+}
+
+.nav-link{
+    color:black;
+    padding-top:0.3em;
+}
+
+
+.image_size{
+   width:50px;
+   height:50px; 
+}
+
+.image_size img{
+    width:100%;
+    height:auto;
+}
+
+.margin_left_search{
+    margin-left:25em;
+}
+
+.padding_input_search{
+    padding-right: 18vw;
+}
+.brand_flex{
+    display: flex;
+    flex-direction: row;
+}
+.font_website_name{
+    margin-top:0.4em;
+    margin-left: 1em;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.highlight:hover{
+    border-color: rgb(79, 137, 170);
+}
+
+.image_hover_invert_color:hover{
+    filter:invert(1);
+}
+
+.margin_login{
+    margin-right:1em;
+}
+
+.margin_sign_up{
+    margin-right:15em;
+}
+
+.button_shape{
+    border-radius:14px;
+}
+
+.right_drop_down{
+    right:1em;
+    left:auto;
+}
+
+.dropdown-menu{
+    height:125px !important;
+    width: 220px !important;
+    background-color: rgb(231, 231, 231);
+}
+
+.dropdown-item img
+{   
+    padding-right: 15px;
+}
+
+.left-margin-switch{
+    margin-left: 20px;
+}
+
+.new_link_logo{
+    margin-left: 20px;
+}
+
+
