@@ -7,6 +7,7 @@ import darkmode from "./assets/dark_mode.svg";
 import help from "./assets/help.svg";
 import newpage from "./assets/new_page.svg";
 import login from "./assets/login.svg"
+import snow from "./assets/leaf.jpg";
 
 const Navbar = ()=>{
    return(
@@ -40,12 +41,74 @@ const Navbar = ()=>{
             </form>
           </li>
         </ul>
-        <button className="btn btn-outline-primary margin_login button_shape" >
+
+          <button type="button" className="btn btn-outline-primary margin_login button_shape" data-bs-toggle="modal" data-bs-target="#loginModal">
             Log In
           </button>
-        <button className="btn btn-primary margin_sign_up button_shape">
+
+          <div className="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="loginModalLabel">Log In</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                    <div className="login-img">
+                        <img src={snow} alt="background image snow" />
+                    </div>
+                    <button className="btn btn-outline-primary">
+                      CONTINUE WITH GOOGLE
+                    </button>
+                    <br />
+                    <span>OR</span>
+                    <br />
+                    <input type="text" className="form-control" placeholder="🌍 Username " aria-label="Username" required/>
+                    <input type="password" className="form-control" placeholder=" &#128161; Password " aria-label="Password" required/>
+                    <button className="btn btn-primary button_shape px-5">Log In</button>
+                    <br />
+                    <span>
+                      New to ideashare? <button className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">SIGN UP</button>
+                    </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <button className="btn btn-primary margin_sign_up button_shape" data-bs-toggle="modal" data-bs-target="#signupModal">
             Sign Up
         </button>
+
+        <div className="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="signupModalLabel">Sign Up</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div className="modal-body">
+                <div className="login-img">
+                        <img src={snow} alt="background image snow" />
+                    </div>
+                    <button className="btn btn-outline-primary">
+                      CONTINUE WITH GOOGLE
+                    </button>
+                    <br />
+                    <span>OR</span>
+                    <br />
+                    <input type="email" className="form-control" placeholder="📧 Email" pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" aria-label="Email" required/>
+                    <input type="text" className="form-control" placeholder="🌍 Username" aria-label="Username" required />
+                    <input type="password" className="form-control" placeholder=" &#128161; Password " aria-label="Password" required/>
+                    <button className="btn btn-primary button_shape px-5">Sign Up</button>
+                    <br />
+                    <span>
+                      Already Sharing Ideas? <button className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">LOG IN</button>
+                    </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
         <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <img src={lightbulb} alt="Dropdown" />
         </a>
@@ -67,7 +130,7 @@ const Navbar = ()=>{
                 </div>
               </li>
               <li>
-                <a className="dropdown-item" href="/">
+                <a className="dropdown-item" href="/" data-bs-toggle="modal" data-bs-target="#loginModal">
                   <img src ={login} alt="Log In or Sign Up"/>
                   <span>Log In / Sign Up</span>
                 </a>
@@ -75,6 +138,7 @@ const Navbar = ()=>{
           </ul>
           
       </div>
+      
     </div>
   </nav>
     );
