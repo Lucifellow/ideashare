@@ -63,7 +63,6 @@
 .dropdown-menu{
     height:125px !important;
     width: 220px !important;
-    background-color: rgb(231, 231, 231);
 }
 
 .dropdown-item img
@@ -79,13 +78,68 @@
     margin-left: 20px;
 }
 
+.modal-content{
+    border-radius: 23px;  
+    
+}
 
 .login-img{
-    width:200px;
-    height:150px; 
+    width:260px;
+    height:340px;
  }
  
  .login-img img{
      width:100%;
      height:auto;
+     border-radius:23px;
+ }
+
+ .non-image{
+     padding-left: 35px;
+ }
+
+ .head-login{
+     padding-top: 1em;
+     padding-bottom: 20px;
+ }
+
+ .modal-title{
+     padding-right: 19em;
+ }
+
+ .modal-title-signup{
+     padding-right:16em;
+ }
+ .google-login-button{
+     padding-bottom: 0.5em;
+ }
+ .span-or{
+    padding-bottom: 0.5em;
+ }
+
+ .modal-input{
+     margin-bottom: 1em;
+ }
+
+ .go-to-signup{
+     padding-top: 1em;
+     padding-bottom:0.2em;
+ }
+
+ .signup-img{
+    width:300px;
+    height:380px;
+    margin-top: 0em !important;
+ }
+ 
+ .signup-img img{
+     width:100%;
+     height:auto;
+     border-radius:23px;
+ }
+
+ .go-to-login{
+     padding-top: 1em;
+     padding-bottom: 0.2em;
+    
  }
