@@ -23,9 +23,13 @@ client.connect(function(err) {
       }
       console.log(result.rows[0].theTime);
       // >> output: 2018-08-23T14:02:57.117Z
-      client.end();
     });
   });
+
+
+const userRouter = require("./routes/user");
+
+app.use("/user",userRouter);
 
 app.listen(port,()=>{
     console.log("Server is started on port: "+port);
