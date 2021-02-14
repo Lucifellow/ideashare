@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import "./style/Navbar.css"
 import logo_img from "./assets/ideashare.png";
 import search from "./assets/search.svg";
@@ -9,7 +10,28 @@ import newpage from "./assets/new_page.svg";
 import login from "./assets/login.svg"
 import leaf from "./assets/leaf.jpg";
 
+
+
 const Navbar = ()=>{
+  const[email,setEmail]=useState("");
+  const[username,setUserName]=useState("");
+  const[password,setPassword]=useState("");
+
+  const handleSignUp=async (e)=>{
+    e.preventDefault();
+
+    const user ={
+      email:email,
+      username:username,
+      password:password
+    }
+
+    console.log(user);
+    
+    await axios.post("http://localhost:5000/user/add",user)
+      .then(res=>console.log(res.data));
+  }
+
    return(
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid ">
@@ -17,7 +39,7 @@ const Navbar = ()=>{
       <a className="navbar-brand" href ="/">
       <div className="brand_flex">
         <div className="image_size">
-          <img src={logo_img} alt ="image logo"/>
+          <img src={logo_img} alt ="logo"/>
         </div>
         <div className="font_website_name">
         <h3>
@@ -46,12 +68,12 @@ const Navbar = ()=>{
             Log In
           </button>
 
-          <div className="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+          <div className="modal fade" id="loginModal" tabIndex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered modal-lg">
               <div className="modal-content">
                 <div className="modal-body d-flex">
                   <div className="login-img">
-                      <img src={leaf} alt="background image leaf" />
+                      <img src={leaf} alt="background leaf" />
                   </div>
                   <div className="non-image">
                       <div className="head-login d-flex" >
@@ -71,14 +93,14 @@ const Navbar = ()=>{
                         <form className="login-form">
                           <input type="text" className="form-control highlight modal-input" placeholder="🌍 Username " aria-label="Username" required/>
                           <input type="password" className="form-control highlight modal-input" placeholder=" &#128161; Password " aria-label="Password" required/>
-                          <button className="btn btn-primary button_shape px-5">Log In</button>
+                          <button type="submit" className="btn btn-primary button_shape px-5">Log In</button>
                         </form>
                         <div className="go-to-signup">
                           <span>
                             New to ideashare ? &nbsp; <button className="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#signupModal" data-bs-dismiss="modal">SIGN UP</button>
                           </span>
                         </div>
-                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -88,12 +110,12 @@ const Navbar = ()=>{
             Sign Up
         </button>
 
-        <div className="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+        <div className="modal fade" id="signupModal" tabIndex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered modal-lg">
               <div className="modal-content">
                 <div className="modal-body d-flex">
                   <div className="signup-img">
-                          <img src={leaf} alt="background image leaf" />
+                          <img src={leaf} alt="background leaf" />
                   </div>
                   <div className="non-image">
                     <div className="head-login d-flex">
@@ -110,11 +132,11 @@ const Navbar = ()=>{
                       <span>OR</span>
                       <br />
                     </div>
-                    <form className="login-form">
-                      <input type="email" className="form-control highlight modal-input" placeholder="📧 Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-label="Email" required/>
-                      <input type="text" className="form-control highlight modal-input" placeholder="🌍 Username" aria-label="Username" required />
-                      <input type="password" className="form-control highlight modal-input" placeholder=" &#128161; Password " aria-label="Password" required/>
-                      <button className="btn btn-primary button_shape px-5">Sign Up</button>
+                    <form className="login-form" onSubmit={handleSignUp}>
+                      <input type="email" className="form-control highlight modal-input" placeholder="📧 Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-label="Email" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
+                      <input type="text" className="form-control highlight modal-input" placeholder="🌍 Username" aria-label="Username"  value={username} onChange={(e)=>setUserName(e.target.value)} required/>
+                      <input type="password" className="form-control highlight modal-input" placeholder=" &#128161; Password " aria-label="Password" value={password} onChange={(e)=>setPassword(e.target.value)} required />
+                      <button type="submit" className="btn btn-primary button_shape px-5" >Sign Up</button>
                     </form>
                     <div className="go-to-login">
                       <span>
@@ -126,10 +148,9 @@ const Navbar = ()=>{
               </div>
             </div>
           </div>
-
-        <a className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <button className="nav-link btn dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false">
               <img src={lightbulb} alt="Dropdown" />
-        </a>
+        </button>
         <ul className="dropdown-menu right_drop_down" aria-labelledby="navbarDropdown">
               <li>
                 <a className="dropdown-item" href="/">
