@@ -28,8 +28,10 @@ client.connect(function(err) {
 
 
 const userRouter = require("./routes/user");
+const loggedIn = require("./routes/loggedIn");
 
 app.use("/user",userRouter);
+app.use("/loggedIn",loggedIn);
 
 app.listen(port,()=>{
     console.log("Server is started on port: "+port);

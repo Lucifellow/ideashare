@@ -91,7 +91,7 @@ const Navbar = ()=>{
                           <br />
                         </div>
                         <form className="login-form">
-                          <input type="text" className="form-control highlight modal-input" placeholder="🌍 Username " aria-label="Username" required/>
+                          <input type="email" className="form-control highlight modal-input" placeholder="📧 Email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" aria-label="Email" value={email} onChange={(e)=>setEmail(e.target.value)} required/>
                           <input type="password" className="form-control highlight modal-input" placeholder=" &#128161; Password " aria-label="Password" required/>
                           <button type="submit" className="btn btn-primary button_shape px-5">Log In</button>
                         </form>

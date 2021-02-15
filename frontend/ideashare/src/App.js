@@ -12,6 +12,7 @@ function App() {
           
           <Route path="/" component={Home}/>  
         </div>
+        <Route path="/LoggedIn" component={LoggedIn} />
       </Router>
     </div>
   );
