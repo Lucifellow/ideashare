@@ -27,7 +27,7 @@ router.route("/add").post(validInfo,async(req,res)=>{
         bcrypt.genSalt(saltRounds, async function(err, salt) {
             bcrypt.hash(password, salt, async function(err, hash) {
                 // Store hash in database here
-                const newUser = await client.query("INSERT INTO users (email,username,password) VALUES($1,$2,$3)",
+                const newUser = await client.query("INSERT INTO users (email,username,password) VALUES($1,$2,$3) RETURNING *",
                 [email,username,hash]);
 
                 const token = jwtGen(newUser.rows[0].user_id);
